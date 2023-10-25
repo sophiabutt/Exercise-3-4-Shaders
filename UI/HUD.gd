@@ -25,6 +25,10 @@ func update_time():
 
 func update_fever():
 	$Fever.value = Global.fever
+	var styleBox = $Fever.get("theme_override_styles/fill")
+	styleBox.bg_color.h = fever_h
+	styleBox.bg_color.s = (Global.fever / 100.0) * fever_s
+	styleBox.bg_color.v = (fever_v/2) + ((Global.fever / 100.0) * (fever_v/2)) 
 
 func update_lives():
 	var indicator_pos = Vector2(indicator_margin.x, Global.VP.y - indicator_margin.y)
