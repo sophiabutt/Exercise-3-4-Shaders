@@ -1,11 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://cd7snqtwiexh2"]
+[gd_scene load_steps=10 format=3 uid="uid://cd7snqtwiexh2"]
 
 [ext_resource type="Script" path="res://UI/Main_Menu.gd" id="1"]
 [ext_resource type="Theme" uid="uid://dtshrykppl4yn" path="res://UI/UI.tres" id="2"]
-[ext_resource type="FontFile" uid="uid://dmd8yur42n0e2" path="res://Assets/LeagueGothic-Regular.ttf" id="3"]
+[ext_resource type="FontFile" uid="uid://b71lqjesw66kv" path="res://Assets/LeagueGothic-Regular.ttf" id="3"]
 [ext_resource type="PackedScene" uid="uid://ba8nudj4pooma" path="res://Ball/Ball.tscn" id="4"]
+[ext_resource type="Shader" path="res://Effects/Main_Menu.gdshader" id="4_t80mn"]
 [ext_resource type="Script" path="res://UI/Boundary.gd" id="5"]
-[ext_resource type="AudioStream" uid="uid://dhll3cyxdsquc" path="res://Assets/wall.wav" id="6"]
+[ext_resource type="AudioStream" uid="uid://djq38vjk4aqg0" path="res://Assets/wall.wav" id="6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ptcy"]
+shader = ExtResource("4_t80mn")
+shader_parameter/OCTAVE = 6
+shader_parameter/mulscale = 5.0
+shader_parameter/height = 0.6
+shader_parameter/tide = 0.1
+shader_parameter/foamthickness = 0.1
+shader_parameter/timescale = 1.0
+shader_parameter/waterdeep = 0.3
+shader_parameter/WATER_COL = Color(0.1, 0.44, 0.76, 1)
+shader_parameter/WATER2_COL = Color(0.09, 0.39, 0.67, 1)
+shader_parameter/FOAM_COL = Color(0.13, 0.55, 0.9, 1)
 
 [sub_resource type="FontFile" id="1"]
 fallbacks = Array[Font]([ExtResource("3")])
@@ -41,6 +55,7 @@ script = ExtResource("5")
 polygon = PackedVector2Array(1023, 4, 1022, 799, 0, 799, 1, 3, -83, 3, -81, 869, 1128, 877, 1117, -71, -89, -89, -83, 1, -1, 1, -3, 2, 2, 0, 0, 1)
 
 [node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_8ptcy")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

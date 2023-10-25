@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://drxwrc1b5f0hw"]
+[gd_scene load_steps=7 format=3 uid="uid://drxwrc1b5f0hw"]
 
 [ext_resource type="Script" path="res://UI/HUD.gd" id="1"]
-[ext_resource type="FontFile" uid="uid://bhn4p60qg2sbj" path="res://Assets/Orbitron Black.ttf" id="2"]
+[ext_resource type="FontFile" uid="uid://c4g3ee8enkywr" path="res://Assets/Orbitron Black.ttf" id="2"]
+[ext_resource type="Shader" path="res://Effects/HUD.gdshader" id="3_12048"]
 
 [sub_resource type="FontFile" id="1"]
 subpixel_positioning = 0
@@ -26,6 +27,13 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_udclr"]
+shader = ExtResource("3_12048")
+shader_parameter/fireMovement = Vector2(-0.01, -0.5)
+shader_parameter/distortionMovement = Vector2(-0.01, -0.3)
+shader_parameter/normalStrength = 40.0
+shader_parameter/distortionStrength = 0.1
 
 [node name="HUD" type="Control"]
 process_mode = 3
@@ -84,6 +92,8 @@ offset_bottom = 45.0
 color = Color(0.203922, 0.227451, 0.25098, 1)
 
 [node name="Fever" type="ProgressBar" parent="."]
+material = SubResource("ShaderMaterial_udclr")
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
