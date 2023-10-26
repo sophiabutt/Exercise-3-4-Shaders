@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://drxwrc1b5f0hw"]
+[gd_scene load_steps=8 format=3 uid="uid://drxwrc1b5f0hw"]
 
 [ext_resource type="Script" path="res://UI/HUD.gd" id="1"]
 [ext_resource type="FontFile" uid="uid://c4g3ee8enkywr" path="res://Assets/Orbitron Black.ttf" id="2"]
@@ -34,6 +34,8 @@ shader_parameter/fireMovement = Vector2(-0.01, -0.5)
 shader_parameter/distortionMovement = Vector2(-0.01, -0.3)
 shader_parameter/normalStrength = 40.0
 shader_parameter/distortionStrength = 0.1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yp4rr"]
 
 [node name="HUD" type="Control"]
 process_mode = 3
@@ -103,6 +105,7 @@ offset_top = 17.0
 offset_right = 200.0
 offset_bottom = 44.0
 grow_horizontal = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_yp4rr")
 show_percentage = false
 
 [node name="Indicator_Container" type="Control" parent="."]
